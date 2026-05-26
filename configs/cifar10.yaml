@@ -1,0 +1,46 @@
+# dataset info
+dataset_name: "cifar10"
+
+# solver info
+sampler_stu: ipndm # ipndm, uni_pc
+afs: True
+schedule_type: logsnr # logsnr
+schedule_rho: 7
+
+
+# training info
+loss_type: inception
+loss_weight: constant
+mode: lambda
+predict_x0: True
+noise_schedule: VE
+guidance_type: None
+bound_tn: 0.05 # 0.05
+bound_tn2: 0.5 # 0.5
+bound_epscaling: 0.05
+window_rate: 0.5
+use_ema: True
+learn_bound: False
+batch: 16 # 16
+sampling_batch: 256
+
+total_kimg: 10
+valid_num: 1000
+train_num: 10000
+noise_handler: uncond # fullsvd values None golden
+noisenethidden_dim: 256 # 256
+noisenet_topk: 16
+alter_training: False
+num_workers: 4
+run_valid: True
+lr_param: 0.05
+lr_net: 0.05
+frequency: 10
+
+
+# path info
+model_path: ../../pretrained/edm/edm-cifar10-32x32-uncond-vp.pkl
+ref_path: ../../pretrained/edm/fid_refs/cifar10-32x32.npz
+datadir: ../logs/indis/data/cifar10logsnr30
+
+

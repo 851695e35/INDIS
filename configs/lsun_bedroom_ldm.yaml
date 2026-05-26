@@ -1,0 +1,49 @@
+# dataset info limits : 9step 2 batch 24GB
+dataset_name: "lsun_bedroom_ldm"
+
+# solver info
+sampler_stu: ipndm
+afs: True
+schedule_type: time_uniform
+schedule_rho: 7
+
+
+# training info
+loss_type: inception
+loss_weight: constant
+mode: time
+predict_x0: False
+noise_schedule: VP
+guidance_type: uncond
+bound_tn: 0.05
+bound_tn2: 1.0
+bound_epscaling: 0.05
+window_rate: 0.05
+use_ema: True
+learn_bound: False
+batch: 16 # 4090
+sampling_batch: 20
+
+run_valid: True
+total_kimg: 10
+valid_num: 1000
+train_num: 10000
+noise_handler: uncond # fullsvd values None golden
+noisenethidden_dim: 128
+noisenet_topk: 64
+alter_training: False
+num_workers: 4
+
+lr_param: 0.05
+lr_net: 0.05
+frequency: 10
+
+
+# path info
+model_path: /ssdwork/yuanliangyu/inversion/pretrained/lsun_bedroom_ldm.ckpt
+ref_path: /ssdwork/yuanliangyu/inversion/fid_refs/VIRTUAL_lsun_bedroom256.npz
+datadir: /ssdwork/yuanliangyu/inversion/iLD3/train/lsun_bedroom_ldmtime_uniform
+
+
+
+

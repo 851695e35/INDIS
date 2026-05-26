@@ -1,0 +1,23 @@
+#
+fid.py
+scripts/local_eval_fid_cifar10.sh
+scripts/local_test_cifar10_pipeline.sh
+
+# Python
+__pycache__/
+*.pyc
+
+# Local tool metadata
+.claude/
+
+# Generated outputs/artifacts
+output/
+samples/
+flop_results/
+noise_analysis_figures/
+analysis_results/
+scripts/archive/
+*.log
+
+# Local experiment leftovers
+test.txt

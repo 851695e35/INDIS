@@ -1,0 +1,46 @@
+# dataset info
+dataset_name: "imagenet64"
+
+# solver info
+sampler_stu: ipndm
+afs: True
+schedule_type: logsnr
+schedule_rho: 7
+
+
+# training info
+loss_type: inception
+loss_weight: constant
+mode: lambda
+predict_x0: True
+noise_schedule: VE
+guidance_type: None
+bound_tn: 0.05 # 0.1
+bound_tn2: 1.0 # 1.0
+bound_epscaling: 0.05 # 0.05
+window_rate: 0.1
+use_ema: True
+learn_bound: False
+batch: 4
+sampling_batch: 128
+
+
+total_kimg: 10
+train_num: 10000
+valid_num: 1000
+noise_handler: class_idx
+noisenethidden_dim: 128
+noisenet_topk: 32
+alter_training: False
+num_workers: 4
+run_valid: True
+lr_param: 0.05
+lr_net: 0.05
+frequency: 10
+
+
+# path info
+model_path: ../../pretrained/edm/edm-imagenet-64x64-cond-adm.pkl
+ref_path: ../../pretrained/edm/fid_refs/imagenet-64x64.npz
+datadir: ../logs/indis/data/imagenet64logsnr30
+

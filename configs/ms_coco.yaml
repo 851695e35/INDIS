@@ -1,0 +1,51 @@
+# dataset info limits : 9step 2 batch 24GB
+dataset_name: "ms_coco"
+
+# solver info
+sampler_stu: ipndm_flux
+afs: False
+schedule_type: time_uniform
+schedule_rho: 7
+max_order: 3
+
+# training info
+loss_type: inception
+loss_weight: constant
+mode: time
+predict_x0: False
+noise_schedule: OT
+guidance_type: uncond
+bound_tn: 0.01
+bound_tn2: 0.01
+bound_epscaling: 0.01
+window_rate: 0.1
+use_ema: True
+learn_bound: False
+batch: 4 # 2 oom on a100 80GB
+sampling_batch: 16
+
+total_kimg: 10
+run_valid: True
+valid_num: 100
+train_num: 10000
+noise_handler: text_embedding
+noisenethidden_dim: 128
+noisenet_topk: 32
+alter_training: False
+num_workers: 4
+lr_param: 0.001
+lr_net: 0.001
+frequency: 10
+
+# flux tailored:
+guidance_type: cfg
+guidance_rate: 4.0
+
+# path info
+model_path: /ssdwork/yuanliangyu/inversion/pretrained/flux-dev
+ref_path: /ssdwork/yuanliangyu/inversion/fid_refs/MS-COCO_val2014_fid_stats.npz
+
+
+
+
+
